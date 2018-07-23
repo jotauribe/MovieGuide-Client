@@ -1,0 +1,21 @@
+<mat-form-field>
+  <input #inputElement
+         matInput
+         [matDatepicker]="picker"
+         [value]="value"
+         [placeholder]="placeholder"
+         [type]="type"
+         [id]="id"
+         [placeholder]="placeholder"
+         (change)="onChange($event)"
+         (keyup)="onKeyup($event)"
+         (blur)="onBlur($event)"
+         [ngModel]="selectedBirthdate"
+         (ngModelChange)="onBirthdateChange($event)">
+
+  <mat-datepicker-toggle matSuffix
+                         [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker
+                  touchUi="true"></mat-datepicker>
+  <mat-error *ngIf="!isValid">{{errorMessage}}</mat-error>
+</mat-form-field>
